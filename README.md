@@ -11,8 +11,8 @@ Things you may want to cover:
 | ------------------ | ------ | ------------------------------ |
 | last_name          | string | null: false                    |
 | first_name         | string | null: false                    |
-| last_name-reading  | string | null: false                    |
-| first_name-reading | string | null: false                    |
+| last_name_reading  | string | null: false                    |
+| first_name_reading | string | null: false                    |
 | birthday           | date   | null: false                    |
 | email              | string | null: false, unique :true      |
 | encrypted_password | string | null: false                    |
@@ -33,8 +33,8 @@ Things you may want to cover:
 | name               | string    | null: false                    |
 | price              | integer   | null: false                    |
 | details            | text      | null: false                    |
-| shipping-fee_id    | integer   | null: false                    |
-| shipping-days_id   | integer   | null: false                    |
+| shipping_fee_id    | integer   | null: false                    |
+| shipping_days_id   | integer   | null: false                    |
 | user               | reference | null: false, foreign_key       |
 | prefecture_id      | integer   | null: false                    |
 
@@ -62,7 +62,7 @@ Things you may want to cover:
 | Column             | Type    | Options                        |
 | ------------------ | ------- | ------------------------------ |
 | postal_code        | string  | null: false                    |
-| prefecture         | integer | null: false                    |
+| prefecture_id      | integer | null: false                    |
 | city               | string  | null: false                    |
 | house_number       | string  | null: false                    |
 | building_name      | string  |                                |
