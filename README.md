@@ -26,17 +26,17 @@ Things you may want to cover:
 
 ## items テーブル
 
-| Column             | Type      | Options                        |
-| ------------------ | --------- | ------------------------------ |
-| category_id        | integer   | null: false                    |
-| condition_id       | integer   | null: false                    |
-| name               | string    | null: false                    |
-| price              | integer   | null: false                    |
-| details            | text      | null: false                    |
-| shipping_fee_id    | integer   | null: false                    |
-| shipping_days_id   | integer   | null: false                    |
-| user               | reference | null: false, foreign_key       |
-| prefecture_id      | integer   | null: false                    |
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| category_id        | integer    | null: false                    |
+| condition_id       | integer    | null: false                    |
+| name               | string     | null: false                    |
+| price              | integer    | null: false                    |
+| details            | text       | null: false                    |
+| shipping_fee_id    | integer    | null: false                    |
+| shipping_day_id    | integer    | null: false                    |
+| user               | references | null: false, foreign_key       |
+| prefecture_id      | integer    | null: false                    |
 
 ### Association
 - belongs_to :user
@@ -59,15 +59,15 @@ Things you may want to cover:
 
 ## addresses テーブル
 
-| Column             | Type      | Options                        |
-| ------------------ | --------- | ------------------------------ |
-| postal_code        | string    | null: false                    |
-| prefecture_id      | integer   | null: false                    |
-| city               | string    | null: false                    |
-| house_number       | string    | null: false                    |
-| building_name      | string    |                                |
-| phone_number       | string    | null: false                    |
-| purchase           | reference | null: false, foreign_key       |
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| postal_code        | string     | null: false                    |
+| prefecture_id      | integer    | null: false                    |
+| city               | string     | null: false                    |
+| house_number       | string     | null: false                    |
+| building_name      | string     |                                |
+| phone_number       | string     | null: false                    |
+| purchase           | references | null: false, foreign_key       |
 
 ### Association
 - belongs_to :purchase
