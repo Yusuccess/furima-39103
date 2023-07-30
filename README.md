@@ -45,10 +45,10 @@ Things you may want to cover:
 
 ## purchases テーブル
 
-| Column             | Type      | Options                        |
-| ------------------ | --------- | ------------------------------ |
-| item               | reference | null: false                    |
-| user               | reference | null: false                    |
+| Column             | Type       | Options                        |
+| ------------------ | ---------  | ------------------------------ |
+| item               | references | null: false, foreign_key       |
+| user               | references | null: false, foreign_key       |
 
 
 ### Association
@@ -67,7 +67,7 @@ Things you may want to cover:
 | house_number       | string  | null: false                    |
 | building_name      | string  |                                |
 | phone_number       | string  | null: false                    |
-
+| purchase_id        | string  | null: false, foreign_key       |
 
 ### Association
 - belongs_to :purchase
