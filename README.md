@@ -13,6 +13,7 @@ Things you may want to cover:
 | first_name         | string | null: false                    |
 | last_name_reading  | string | null: false                    |
 | first_name_reading | string | null: false                    |
+| nickname           | string | null: false                    |
 | birthday           | date   | null: false                    |
 | email              | string | null: false, unique :true      |
 | encrypted_password | string | null: false                    |
@@ -35,7 +36,7 @@ Things you may want to cover:
 | details            | text       | null: false                    |
 | shipping_fee_id    | integer    | null: false                    |
 | shipping_day_id    | integer    | null: false                    |
-| user               | references | null: false, foreign_key       |
+| user               | references | null: false, foreign_key: true |
 | prefecture_id      | integer    | null: false                    |
 
 ### Association
@@ -47,8 +48,8 @@ Things you may want to cover:
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------  | ------------------------------ |
-| item               | references | null: false, foreign_key       |
-| user               | references | null: false, foreign_key       |
+| item               | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
 
 
 ### Association
