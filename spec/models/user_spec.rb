@@ -57,18 +57,18 @@ RSpec.describe User, type: :model do
       end
       it 'パスワードは半角英字のみでは保存できない' do
         @user.password = 'kureyonnnttt'
-        @use.valid?
+        @user.valid?
         expect(@user.errors.full_messages).to include "Password には英字と数字の両方を含めて設定してください"
       end
       it 'パスワードは半角数字のみでは保存できない' do
         @user.password = '12347890123'
-        @use.valid?
+        @user.valid?
         expect(@user.errors.full_messages).to include "Password には英字と数字の両方を含めて設定してください"
       end
-      it 'パスワードは全角英数混合では保存できない'
-      @user.password = 'ＦＫ１２３３５２３４'
-      @use.valid?
-      expect(@user.errors.full_messages).to include "Password には英字と数字の両方を含めて設定してください"
+      it 'パスワードは全角英数混合では保存できない' do
+       @user.password = 'ＦＫ１２３３５２３４'
+       @user.valid?
+       expect(@user.errors.full_messages).to include "Password には英字と数字の両方を含めて設定してください"
       end
       it 'last_nameが空では登録できない' do
         @user.last_name = ''
