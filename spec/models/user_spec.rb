@@ -16,8 +16,8 @@ RSpec.describe User, type: :model do
         @user.nickname = ''
         @user.valid?
         expect(@user.errors.full_messages).to include ("Nickname can't be blank")
-
       end
+
       it 'emailが空では登録できない' do
         @user.email = ''
         @user.valid?
@@ -62,8 +62,8 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include "Last name can't be blank"
       end
 
-      it 'last_nameがアルファベットを含むと登録できない' do
-        @user.last_name = 'ta中'
+      it 'last_nameが漢字・ひらがな・カタカナ以外を含むと登録できない' do
+        @user.last_name = 'tanaka9'
         @user.valid?
         expect(@user.errors.full_messages).to include "Last name is invalid. Input full-width characters."
       end
@@ -74,8 +74,8 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include "First name can't be blank"
       end
 
-      it 'first_nameがアルファベットを含むと登録できない' do
-        @user.first_name = 'yusuke'
+      it 'first_nameが漢字・ひらがな・カタカナ以外を含むと登録できない' do
+        @user.first_name = 'yusuke4'
         @user.valid?
         expect(@user.errors.full_messages).to include "First name is invalid. Input full-width characters."
       end
@@ -86,7 +86,7 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include "Last name reading can't be blank"
       end
 
-      it 'last_name_readingがアルファベットを含むと登録できない' do
+      it 'last_name_readingがカタカナ以外を含むと登録できない' do
         @user.last_name_reading = 'tanaka'
         @user.valid?
         expect(@user.errors.full_messages).to include "Last name reading is invalid. Input full-width katakana characters."
@@ -98,7 +98,7 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include "First name reading can't be blank"
       end
 
-      it 'first_name_readingがアルファベットを含むと登録できない' do
+      it 'first_name_readingがカタカナ以外を含むと登録できない' do
         @user.first_name_reading = 'yusuke'
         @user.valid?
         expect(@user.errors.full_messages).to include "First name reading is invalid. Input full-width katakana characters."
