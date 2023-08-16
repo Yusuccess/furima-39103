@@ -6,7 +6,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.order("created_at DESC")
-    @purchase = Purchase.all
   end
   def new
     @item = Item.new
@@ -50,6 +49,9 @@ class ItemsController < ApplicationController
 
   def contributor_confirmation
     redirect_to root_path unless current_user == @item.user
+    if @item.purchase.present?
+      redirect_to root_path
+    end
   end
 
 
