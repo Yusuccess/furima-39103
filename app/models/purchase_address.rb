@@ -14,6 +14,7 @@ class PurchaseAddress
     #Purchaseモデルのバリデーション
     validates :item_id
     validates :user_id
+    validates :token
   end
 
   def save
