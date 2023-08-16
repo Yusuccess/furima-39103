@@ -10,7 +10,7 @@ RSpec.describe PurchaseAddress, type: :model do
       @purchase_address = FactoryBot.build(:purchase_address, user_id: user.id, item_id: item.id)
     end
     context '商品が購入ができる時' do
-      it 'User_id, Item_idが紐づいていて、郵便番号、都道府県、市区町村、番地、電話番号が正しく入力されている時 ' do
+      it 'User_id, Item_idが紐づいていて、カード情報、郵便番号、都道府県、市区町村、番地、電話番号が正しく入力されている時 ' do
         expect(@purchase_address).to be_valid
       end
     end
@@ -75,6 +75,11 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.phone_number = "あいうえおkaskl"
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include ("Phone number is invalid")
+      end
+      it 'カード情報が正しく入力されていない時' do
+        @purchase_address.token = ""
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include ("Token can't be blank")
       end
     end
   end
