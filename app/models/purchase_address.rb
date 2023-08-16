@@ -1,6 +1,6 @@
 class PurchaseAddress 
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :purchase, :item_id, :user_id, :token
+  attr_accessor :postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :item_id, :user_id, :token
 
   with_options presence: true do
     #Addressモデルのバリデーション
