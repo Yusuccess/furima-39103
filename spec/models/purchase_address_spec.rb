@@ -13,6 +13,10 @@ RSpec.describe PurchaseAddress, type: :model do
       it 'User_id, Item_idが紐づいていて、カード情報、郵便番号、都道府県、市区町村、番地、電話番号が正しく入力されている時 ' do
         expect(@purchase_address).to be_valid
       end
+      it '建物名が空でも登録できる' do
+        @purchase_address.building_name = ""
+        expect(@purchase_address).to be_valid
+      end
     end
 
     context '商品が購入できない時' do
