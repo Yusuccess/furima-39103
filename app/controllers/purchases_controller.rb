@@ -1,5 +1,7 @@
 class PurchasesController < ApplicationController
+  before_action :authenticate_user!
   before_action :input_item, only: [:index, :create]
+  before_action :contributor_confirmation, except: [:create]
 
   def index
     @purchase_address = PurchaseAddress.new
@@ -34,6 +36,16 @@ class PurchasesController < ApplicationController
 
   def input_item
     @item = Item.find(params[:item_id])
+  end
+
+  def contributor_confirmation
+    if @item.purchase.present?
+      redirect_to root_path 
+     else
+      if current_user == @item.user
+        redirect_to root_path 
+      end
+    end
   end
 
 end
