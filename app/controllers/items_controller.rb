@@ -48,8 +48,11 @@ class ItemsController < ApplicationController
   end
 
   def contributor_confirmation
-    redirect_to root_path unless current_user == @item.user
-    if @item.purchase.present?
+    if current_user == @item.user
+      if @item.purchase.present?
+        return redirect_to root_path
+      end
+    else
       redirect_to root_path
     end
   end
