@@ -8,7 +8,7 @@ class PurchaseAddress
 
     #validates :postal_code,       format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "input correctly"}
     validates :prefecture_id ,    numericality: {other_than: 1, message: "select"}
-    validates :city,              format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: "is invalid. Input full-width characters."}
+    validates :city,              format: {with: /\A[ぁ-んァ-ヶ一-龥々ー0-9０-９A-ZＡ-Ｚ\-]+\z/, message: "is invalid."}
     validates :house_number
     validates :phone_number,      format: {with: /\A\d{10,11}\z/, messages: "is invalid"} 
     #Purchaseモデルのバリデーション
